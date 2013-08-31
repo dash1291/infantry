@@ -1,0 +1,15 @@
+{
+  "author": "Ashish Dubey",
+  "name": "infantry",
+  "version": "0.1.0",
+  "repository": {
+    "url": "https://github.com/dash1291/infantry"
+  },
+  "main": "./lib/server.js",
+  "dependencies": {
+    "express": "*"
+  },
+  "engines": {
+    "node": "0.8.*"
+  }
+}
