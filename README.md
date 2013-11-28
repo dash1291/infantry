@@ -1,13 +1,13 @@
-infantry
-========
+# Infantry
 
 Run MapReduce in client's browser.
 
+## Installation
 
-**NOTE:** The code is more of an example right now. It calculates the total number of names in a corpus that start with each letter in the processed results.
+Install using `npm` using the following command:
 
-`reduce.js`: Contains the reduce function `reduce_func`. Define your own.
+`npm install https://github.com/dash1291/infantry.git`
 
-`static/js/map.js`: Contains the map function `map`. Runs on the browser. Define your own.
+## Example Usage
 
-`test_data.py`: Generates chunks of data (random list of names) as `.txt` files.
+An example application can be found inside `example/` directory of the source code. The example generates chunks of data constituting person names from an NLTK corpus. The map/reduce prepares a dictionary of alphabets as keys and the number of names starting with the particular alphabet as the value.
