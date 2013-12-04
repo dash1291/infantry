@@ -1,14 +1,18 @@
-(function() {
+(function () {
     function map(names) {
-        console.log(names);
-        results = {};
+        var keys = {};
+        var results = [];
+
         names.forEach(function(name) {
-            console.log(name);
             var firstLetter = name[0];
-            if (firstLetter in results) {
-                results[firstLetter]++;
+            if (firstLetter in keys) {
+                results[keys[firstLetter]].val++;
             } else {
-                results[firstLetter] = 1;
+                results.push({
+                    key: firstLetter,
+                    val: 1
+                });
+                keys[firstLetter] = results.length - 1;
             }
         });
         return results;
@@ -22,8 +26,19 @@
         return {key: key, val: sum};
     }
 
+    function splitJob(names, divs) {
+        var splitLen = Math.ceil(names.length / divs);
+        var splits = [];
+        for (var i = 0; i < divs; i++) {
+            splits.push(names.slice(splitLen * i, splitLen * (i + 1)));
+        }
+        //console.log(splits);
+        return splits;
+    }
+
     return {
         map: map,
-        reduce: reduce
+        reduce: reduce,
+        splitJob: splitJob
     };
 })();
