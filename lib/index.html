@@ -3,7 +3,15 @@
     <script src="/static/js/lib/jquery.js"></script>
     <script src="/static/js/controller.js"></script>
     <script src="/static/js/program.js"></script>
+</head>
 <body>
+	<script>
+		var workers = prompt('Enter number of workers (leave blank for none)');
+		if (workers) {
+			window.infantry.controller.setConcurrency(workers);
+		}
+		window.infantry.controller.init();
+	</script>
     <div class="status">Idle</div>
     <div class="jobs-count">0 jobs processed.</div>
 </body>
