@@ -26,13 +26,13 @@ var env = {
 
         // This points to the file containing your map-reduce code. See "Program code" section for more details.
         programSource: __dirname + '/map.js',
-
-        // Run the server on this port.
-        port: 8888
 };
 
-// Start the server using `env` as configuration object.
-infantry.server(env);
+// Initialize the app using `env` as configuration object.
+var inf = inf.app(env);
+
+// Start the server on port 8080
+infantry.start(8080);
 ```
 
 ### Data Splitting
@@ -47,7 +47,8 @@ The user has to write their map-reduce application inside a file and point the `
 window.webmr.map = function(data) {
     // `data` can be be of any format (depending on the dataset) and its upto the user how to handle it.
 
-    // `results` should be the result of your map computation and a set of key-value pairs (an object).
+    // `results` should be the result of your map computation and an array of key-value pairs (objects).
+    // The notation of the object should be: {key: key, val: value}
     return results;
 };
 
