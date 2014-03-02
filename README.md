@@ -63,6 +63,6 @@ window.webmr.reduce = function(key, results) {
 
 Above is just a template of the map/reduce functions that can be written. What exactly can be written and made to work is really upto the user's understanding of MapReduce and capabilities of Infantry.
 
-## Customizing storage
+### Customizing storage
 
-Not implemented yet, but patches welcome!
+Only filesystem based storage is possible for now. Customizable backends to come.
