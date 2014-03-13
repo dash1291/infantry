@@ -44,21 +44,24 @@ As of now, Infantry uses a very simple storage interface. Because of that, split
 The user has to write their map-reduce application inside a file and point the `programSource` in the configuration object. Its upto the user what goes inside this file but there are two requirements which should be met for the entire thing to work, that is, the user defined map/reduce functions. A typical file would look something like this:
 
 ```javascript
-window.webmr.map = function(data) {
-    // `data` can be be of any format (depending on the dataset) and its upto the user how to handle it.
+(function() {
+    return {
+        map: function(data) {
+            // `data` can be be of any format (depending on the dataset) and its upto the user how to handle it.
 
-    // `results` should be the result of your map computation and an array of key-value pairs (objects).
-    // The notation of the object should be: {key: key, val: value}
-    return results;
-};
+            // `results` should be the result of your map computation and an array of key-value pairs (objects).
+            // The notation of the object should be: {key: key, val: value}
+            return results;
+        },
+        reduce: function(key, results) {
+            // `key` is a string and `results` is an array here.
 
-window.webmr.reduce = function(key, results) {
-	// `key` is a string and `results` is an array here.
-
-    // In the returned object `key` should refer to the same key passed to the function.
-    // `result` is the result of your reduce computation.
-    return {key: key, val: result};
-};
+            // In the returned object `key` should refer to the same key passed to the function.
+            // `result` is the result of your reduce computation.
+            return {key: key, val: result};
+        }
+    };
+})();
 ```
 
 Above is just a template of the map/reduce functions that can be written. What exactly can be written and made to work is really upto the user's understanding of MapReduce and capabilities of Infantry.
