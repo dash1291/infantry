@@ -1,6 +1,6 @@
 var infantry = require('infantry');
 
-var store = infantry.store.fs(__dirname + '/data');
+var store = infantry.store.fs(__dirname + '/data', '.txt');
 
 var inf = infantry.app({
     store: store,

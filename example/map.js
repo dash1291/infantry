@@ -3,6 +3,7 @@
         var keys = {};
         var results = [];
 
+        names = names.val.split('\n');
         names.forEach(function(name) {
             var firstLetter = name[0];
             if (firstLetter in keys) {
