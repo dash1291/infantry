@@ -18,7 +18,8 @@ An example application can be found inside `example/` directory of the source co
 var infantry = require('infantry');
 
 // Specify where your data lies. See "Data Splitting" section for more details
-var store = infantry.store.fs(__dirname + '/data');
+// The actual input data files will go into `input/` directory inside the path mentioned in the example below.
+var store = infantry.store.fs(__dirname + '/data', '.txt');
 
 // Set your configuration object
 var env = {
@@ -37,7 +38,7 @@ infantry.start(8080);
 
 ### Data Splitting
 
-As of now, Infantry uses a very simple storage interface. Because of that, splitting of data has to be taken care of manually by the user. Simply create a directory, and split your dataset into text files with names in the pattern of `0.txt`, `1.txt`, `2.txt` and so on.
+As of now, Infantry uses a very simple storage interface. Because of that, splitting of data has to be taken care of manually by the user. Simply create a directory, and split your dataset into files with same extension. Name of the file will be used as the key to be used for executing map job for that set.
 
 ### Program code
 
